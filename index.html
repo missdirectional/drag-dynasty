@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORQ | Drag Dynasty</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Space+Grotesk:wght@700;900&family=Syne:wght@800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #08010f;
+            --panel-bg: #140622;
+            --neon-magenta: #ff007f;
+            --neon-cyan: #00f0ff;
+            --border-thick: 4px solid #ffffff;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            font-family: 'Courier Prime', monospace;
+            margin: 0;
+            padding: 10px;
+            /* Gritty comic-book halftone dot background */
+            background-image: 
+                radial-gradient(rgba(255, 0, 127, 0.15) 1.5px, transparent 0),
+                radial-gradient(rgba(0, 240, 255, 0.1) 1.5px, transparent 0);
+            background-size: 24px 24px;
+            background-position: 0 0, 12px 12px;
+        }
+
+        @media (min-width: 600px) {
+            body { padding: 30px; }
+        }
+
+        header {
+            max-width: 900px;
+            margin: 20px auto;
+            border: var(--border-thick);
+            background: var(--panel-bg);
+            box-shadow: 10px 10px 0px var(--neon-cyan);
+            padding: 30px;
+            text-align: center;
+            transform: rotate(-1deg);
+        }
+
+        header h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            margin: 0;
+            letter-spacing: -3px;
+            text-shadow: 4px 4px 0px var(--neon-magenta);
+            line-height: 1;
+        }
+
+        header p {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--neon-cyan);
+            margin: 15px 0 0 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* 📁 Dynamic Tactile Tab Navigation */
+        nav {
+            max-width: 900px;
+            margin: 30px auto 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tab-btn {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            background: #000000;
+            color: #ffffff;
+            border: var(--border-thick);
+            padding: 12px 20px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            box-shadow: 4px 4px 0px var(--neon-magenta);
+            transition: all 0.15s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+        }
+
+        .tab-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px var(--neon-cyan);
+            color: var(--neon-cyan);
+        }
+
+        .tab-btn.active {
+            background: var(--panel-bg);
+            border-bottom-color: var(--panel-bg);
+            box-shadow: 6px 6px 0px var(--neon-magenta);
+            transform: translate(-1px, -1px);
+            color: var(--neon-magenta);
+            z-index: 2;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* 📄 Content Panels */
+        .tab-content {
+            display: none; /* Hidden by default */
+            background: var(--panel-bg);
+            border: var(--border-thick);
+            padding: 35px;
+            margin-top: -4px; /* Flushes with active tab */
+            box-shadow: 10px 10px 0px var(--neon-magenta);
+            margin-bottom: 50px;
+        }
+
+        /* Show the active panel */
+        .tab-content.active {
+            display: block;
+            animation: glitch-pop 0.2s ease-out;
+        }
+
+        @keyframes glitch-pop {
+            0% { transform: scale(0.98) translate(4px, 4px); opacity: 0.8; }
+            100% { transform: scale(1) translate(0, 0); opacity: 1; }
+        }
+
+        h2, h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            color: var(--neon-cyan);
+            letter-spacing: -1px;
+            margin-top: 0;
+            text-shadow: 3px 3px 0px #000;
+        }
+
+        p {
+            line-height: 1.7;
+            font-size: 1.15rem;
+        }
+
+        .hype-box {
+            border: 3px dashed var(--neon-magenta);
+            background: rgba(255, 0, 127, 0.05);
+            padding: 20px;
+            margin: 25px 0;
+        }
+
+        .hype-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .hype-box li {
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+
+        /* Chonky UI Elements */
+        .form-group {
+            margin-top: 30px;
+        }
+
+        input[type="email"] {
+            width: 100%;
+            box-sizing: border-box;
+            background: #000;
+            border: var(--border-thick);
+            padding: 18px;
+            color: var(--neon-cyan);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            outline: none;
+        }
+
+        input[type="email"]:focus {
+            border-color: var(--neon-magenta);
+        }
+
+        .cta-btn {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            background: var(--neon-magenta);
+            color: #ffffff;
+            border: var(--border-thick);
+            padding: 18px 36px;
+            font-size: 1.3rem;
+            box-shadow: 6px 6px 0px #000;
+            cursor: pointer;
+            transition: all 0.1s ease;
+            width: 100%;
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+
+        @media (min-width: 600px) {
+            .cta-btn { width: auto; }
+        }
+
+        .cta-btn:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 3px 3px 0px #000;
+            background: var(--neon-cyan);
+            color: #000;
+        }
+
+        .contact-link {
+            display: inline-block;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            color: var(--neon-cyan);
+            text-decoration: none;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            border: 3px solid var(--neon-cyan);
+            padding: 10px 20px;
+            margin-top: 15px;
+            box-shadow: 4px 4px 0px #000;
+        }
+
+        .contact-link:hover {
+            background: var(--neon-cyan);
+            color: #000;
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px #000;
+        }
+
+        /* Blueprint Page Styling Elements */
+        .hub-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        @media (min-width: 768px) {
+            .hub-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .hub-card {
+            border: 3px solid #ffffff;
+            padding: 20px;
+            background: #1c0a32;
+            box-shadow: 5px 5px 0px #000000;
+        }
+        .hub-card h3 {
+            font-size: 1.5rem;
+            margin: 0 0 10px 0;
+            color: var(--neon-magenta);
+            text-shadow: 2px 2px 0px #000000;
+            font-family: 'Space Grotesk', sans-serif;
+            text-transform: uppercase;
+        }
+        .badge {
+            display: inline-block;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.8rem;
+            font-weight: bold;
+            background: var(--neon-cyan);
+            color: #000;
+            padding: 3px 8px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>WORQ</h1>
+        <p>The Drag Dynasty Evolution</p>
+    </header>
+
+    <!-- Folder Tabs Navigation Menu -->
+    <nav>
+        <button class="tab-btn active" onclick="openTab(event, 'home')">Sovereignty</button>
+        <button class="tab-btn" onclick="openTab(event, 'waitlist')">Waitlist</button>
+        <button class="tab-btn" onclick="openTab(event, 'features')">The Blueprint</button>
+        <button class="tab-btn" onclick="openTab(event, 'beta')">Bham Beta</button>
+        <button class="tab-btn" onclick="openTab(event, 'contact')">Contact</button>
+    </nav>
+
+    <main>
+        <!-- Home / Sovereignty Page -->
+        <div id="home" class="tab-content active">
+            <h2>Step Inside the Kingdom</h2>
+            <p>We are blending high-energy drag culture with sleek mobility, establishing a sovereign ecosystem engineered strictly for nightlife royalty.</p>
+            <p><strong>WORQ</strong> is built to empower drag performers, handing back complete control over monetization, digital fanbases, and live event coordination. Big Swings, Big Rewards.</p>
+        </div>
+
+        <!-- Waitlist Page -->
+        <div id="waitlist" class="tab-content">
+            <h2>Secure Your Crown</h2>
+            <p>Ready to secure your position? Tell us where to send your VIP entry key before our official system deployment this fall.</p>
+            <div class="form-group">
+                <input type="email" placeholder="YOUR_EMAIL@DOMAIN.COM" required>
+                <button class="cta-btn" type="submit">Claim Your Access</button>
+            </div>
+        </div>
+
+        <!-- Features / The Blueprint Page -->
+        <div id="features" class="tab-content">
+            <h2>The Blueprint</h2>
+            <p>This app will change how people interact with drag. By hosting a creator marketplace, performer live streams, weekly competitions and more in one space, It enables absolute independence for drag artists to capture non-sweaty dollar bills and scale their drag career.</p>
+
+            <div class="hub-grid">
+                <!-- Hub 1: The Networq -->
+                <div class="hub-card">
+                    <span class="badge">Hub 01 // Ecosystem</span>
+                    <h3>The Networq</h3>
+                    <p>Our decentralized gig marketplace. Connect instantly with videographers, makeup artists, wig designers, beats-makers, and producers built specifically to collaborate on drag royalty standards.</p>
+                </div>
+
+                <!-- Hub 2: Bling -->
+                <div class="hub-card">
+                    <span class="badge">Hub 02 // Currency</span>
+                    <h3>Bling 💎</h3>
+                    <p>The sovereign in-app digital currency. Fans load up and tip performers in real-time with zero friction. Instant value, direct transfers, completely bypassing predatory traditional payment processors.</p>
+                </div>
+
+                <!-- Hub 3: Castles -->
+                <div class="hub-card">
+                    <span class="badge">Hub 03 // Patronage</span>
+                    <h3>Castles 🏰</h3>
+                    <p>Build your digital stronghold. Castles allow fans to subscribe directly to performers for exclusive backstage access, custom media vaults (powered by Mux), and private royal feeds.</p>
+                </div>
+
+                <!-- Hub 4: Drops -->
+                <div class="hub-card">
+                    <span class="badge">Hub 04 // Quests</span>
+                    <h3>Drops 💰</h3>
+                    <p>The interactive request board. Fans drop bounties or custom challenges with Bling/$$$, and performers complete them to claim the bounty. Direct engagement, monetized instantly.</p>
+                </div>
+            </div>
+
+            <!-- Future Roadmap / Hype Zone -->
+            <div class="hype-box" style="border-style: solid; border-width: 4px; transform: rotate(0.5deg);">
+                <h3 style="color: var(--neon-cyan); margin-bottom: 15px;">System Expansions Loading...</h3>
+                <p>We're just warming up the engines. The following protocol modules are actively in development for upcoming deployment cycles:</p>
+                <ul style="list-style-type: '⚡ '; padding-left: 20px; font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; line-height: 1.8;">
+                    <li><strong>Live Stream Broadcasts:</strong> Real-time virtual stages with integrated interactive tipping.</li>
+                    <li><strong>Weekly Grand Tournaments:</strong> Digital head-to-head performance battles decided by fan-voted Bling rankings.</li>
+                    <li><strong>Venue Booking Matrix:</strong> Direct scheduling integrations to coordinate local physical shows seamlessly.</li>
+                    <li><strong>Royal Audio Sync:</strong> Directly upload, protect, and cue custom track mixes and performance music.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Beta Page -->
+        <div id="beta" class="tab-content">
+            <h2>Birmingham Sandbox</h2>
+            <p>We're looking for enthusiastic fans of of the drag community to test the app before our rollout! If you live or perform in the <strong>Birmingham, AL</strong> area, apply for early access and help us shape the future.</p>
+            <a href="mailto:missywontquit@gmail.com?subject=Birmingham Beta Application" class="cta-btn">Apply for Sandbox Access</a>
+        </div>
+
+        <!-- Contact Page -->
+        <div id="contact" class="tab-content">
+            <h2>Reach the Dynasty</h2>
+            <h3>Dezzie Duzzit</h3>
+            <p style="color: var(--neon-magenta); font-weight: bold; margin-top: -10px; text-transform: uppercase; font-family: 'Space Grotesk', sans-serif;">Communications Directive</p>
+            <p>Have questions regarding sponsorships, performance system integrations, or press coordination? Reach out directly via encrypted transmission:</p>
+            <a href="mailto:missywontquit@gmail.com" class="contact-link">missywontquit@gmail.com</a>
+        </div>
+    </main>
+
+    <!-- Tab Switching Script -->
+    <script>
+        function openTab(evt, tabId) {
+            // Hide all tab panels
+            const contents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < contents.length; i++) {
+                contents[i].classList.remove("active");
+            }
+
+            // Deactivate all tab buttons
+            const buttons = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove("active");
+            }
+
+            // Show current panel & light up clicked button
+            document.getElementById(tabId).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
