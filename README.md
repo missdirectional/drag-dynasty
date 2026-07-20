@@ -1,64 +1,72 @@
-# Astro Starter Kit: Blog
+# 👑 Drag Dynasty
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/templates/tree/main/astro-blog-starter-template)
+> A digital platform providing monetization, marketplace, and subscription features for the drag performance community. 
 
-![Astro Template Preview](https://github.com/withastro/astro/assets/2244813/ff10799f-a816-4703-b967-c78997e8323d)
+Live Site: [drag-dynasty.org](https://drag-dynasty.org)
 
-<!-- dash-content-start -->
+---
 
-Create a blog with Astro and deploy it on Cloudflare Workers as a [static website](https://developers.cloudflare.com/workers/static-assets/).
+## 📱 Mobile Experience (Built with Snack & Supabase)
+Here is a look at the core app components, including the community network and the digital tipping/monetization interface.
 
-Features:
+<table>
+  <tr>
+    <td align="center">
+      <h3>WORQ Home</h3>
+     <img width="325" height="623" alt="Screenshot 2026-07-19 at 11 06 56 PM" src="https://github.com/user-attachments/assets/258377ff-7844-4bf6-a180-9182818b2bf9" /> <!-- DRAG & DROP FIRST MOBILE SCREENSHOT HERE -->
+    </td>
+</tr>
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
-- ✅ Built-in Observability logging
+  <td align="center">
+      <h3>"BLING" Marketplace</h3>
+      <img width="325" height="623" alt="Screenshot 2026-07-19 at 11 07 24 PM" src="https://github.com/user-attachments/assets/a84f3c52-cd24-411d-8562-ad5dc76b4d32" />
+      
+      <!-- DRAG & DROP SECOND MOBILE SCREENSHOT HERE -->
+  </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <h3>NETWORQ Hub</h3>
+      <img width="325" height="623" alt="Screenshot 2026-07-19 at 11 11 32 PM" src="https://github.com/user-attachments/assets/71f3b0e9-f460-4eda-8b72-660d6408be2b" />
 
-<!-- dash-content-end -->
+  </td>
+  <td align="center">
+      <h3>COMPETITIONS</h3>
+      <img width="325" height="623" alt="Screenshot 2026-07-19 at 11 12 52 PM" src="https://github.com/user-attachments/assets/d35d401d-1ad2-424e-8348-cf74984c9117" />
 
-## Getting Started
 
-Outside of this repo, you can start a new project with this template using [C3](https://developers.cloudflare.com/pages/get-started/c3/) (the `create-cloudflare` CLI):
+  </td>
+  </tr>
+ <tr>
+    <td align="center">
+      <h3>BUILD YOUR CASTLE </h3>
+      <img width="325" height="623" alt="Screenshot 2026-07-19 at 11 13 35 PM" src="https://github.com/user-attachments/assets/bdc06ba0-2fbf-42b9-ba51-1457dceb10e2" />
 
-```bash
-npm create cloudflare@latest -- --template=cloudflare/templates/astro-blog-starter-template
-```
+  </td>
+  <td align="center">
+      <h3>COMPLETE DROPS FOR BLING</h3>
+      <img width="325" height="623" alt="Screenshot 2026-07-19 at 11 14 03 PM" src="https://github.com/user-attachments/assets/f0a7c4a8-6a38-417c-855c-fd4a1f558f60" />
+</h3>
 
-A live public deployment of this template is available at [https://astro-blog-starter-template.templates.workers.dev](https://astro-blog-starter-template.templates.workers.dev)
 
-## 🚀 Project Structure
+  </td>
+  </tr>
+  
+</table>
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+---
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## 🌐 Companion Website & Desktop Landing Page
+The web interface features a bold, punk-ish pop-art aesthetic designed to match the high-energy vibe of the community.
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+### Desktop Preview
+<!-- DRAG & DROP A WIDE LANDING PAGE SCREENSHOT HERE -->
+<img width="1016" height="523" alt="Screenshot 2026-07-19 at 11 15 18 PM" src="https://github.com/user-attachments/assets/986cd306-d7c3-4b8b-bf3b-1381450f9b12" />
+---
 
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                           | Action                                           |
-| :-------------------------------- | :----------------------------------------------- |
-| `npm install`                     | Installs dependencies                            |
-| `npm run dev`                     | Starts local dev server at `localhost:4321`      |
-| `npm run build`                   | Build your production site to `./dist/`          |
-| `npm run preview`                 | Preview your build locally, before deploying     |
-| `npm run astro ...`               | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help`         | Get help using the Astro CLI                     |
-| `npm run build && npm run deploy` | Deploy your production site to Cloudflare        |
-| `npm wrangler tail`               | View real-time logs for all Workers              |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+## 🛠️ Tech Stack & Architecture
+* **Frontend:** Snack (Mobile App) & Netlify (Web Deployment)
+* **Backend & Database:** Supabase
+* **Media & Video Processing:** Mux
+* **Network & DNS:** Cloudflare
+* **Community Waitlist:** Jotform
